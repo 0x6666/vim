@@ -1,3 +1,11 @@
+
+
+" option
+let use_golang=1
+let use_neocomplete=2	" 1 use neocomplete, 2 use youcompleteme
+
+
+
 set langmenu=none 		"force to use the English manus
 set nocompatible		"be iMproved
 filetype off			"required
@@ -51,6 +59,9 @@ NeoBundle "othree/xml.vim"
 NeoBundle "vim-airline/vim-airline-themes"
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 't9md/vim-choosewin'
+if use_golang==1
+	NeoBundle 'fatih/vim-go'
+endif
 
 " NerdTree
 NeoBundle 'https://github.com/scrooloose/nerdtree.git'
@@ -108,7 +119,6 @@ let g:lucius_use_underline=1
 let g:lucius_no_term_bg=1
 
 "Complete
-let use_neocomplete=2	" 1 use neocomplete, 2 use youcompleteme
 if use_neocomplete==1
 	NeoBundle 'Shougo/neocomplete.vim'
 endif
