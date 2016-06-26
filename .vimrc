@@ -48,6 +48,9 @@ NeoBundle "tomtom/tlib_vim"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "honza/vim-snippets"
 NeoBundle "othree/xml.vim"
+NeoBundle "vim-airline/vim-airline-themes"
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 't9md/vim-choosewin'
 
 " NerdTree
 NeoBundle 'https://github.com/scrooloose/nerdtree.git'
@@ -63,19 +66,17 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif 
 
 " AirLin
-NeoBundle 'bling/vim-airline'
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='tomorrow' "'base16' 
+let g:airline_theme= 'distinguished' "'bubblegum' "'base16' 
 let g:airline#extensions#fnamemod=':t'
 set hidden
 nmap <C-k> :bnext<cr>				"nexe buffer
 nmap <C-j> :bprev<cr>
 
 "choosewin
-NeoBundle 't9md/vim-choosewin'
 let g:choosewin_overlay_enable=1
 let g:choosewin_overlay_clear_multibyte=1
 let g:choosewin_statusline_replace=0
