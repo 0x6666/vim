@@ -7,7 +7,8 @@ let use_neocomplete=2	" 1 use neocomplete, 2 use youcompleteme
 
 
 set langmenu=none 		"force to use the English manus
-set nocompatible		"be iMproved
+"set nocompatible		"be iMproved
+
 filetype off			"required
 
 hi Normal ctermfg=252 ctermbg=none
@@ -28,7 +29,7 @@ if has('vim_starting')
 	endif
 
 	"Required
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+	set runtimepath^=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required
