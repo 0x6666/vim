@@ -40,9 +40,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc',{
 	\ 'build' :{
-	\ 	'windows': 'make -f make_mingw32.mak', 
+	\ 	'windows': 'tools\\update-dll-mingw', 
 	\	'cygwin': 'make -f make_cygwin.mak',
-	\	'unix': 'make -f make_unix.mak',
+	\	'mac': 'make',
+	\	'linex': 'make',
+	\	'unix': 'gmake'
 	\	},
 	\}
 
@@ -82,7 +84,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme= 'distinguished' "'bubblegum' "'base16' 
+"let g:airline_theme= 'distinguished' "'bubblegum' "'base16' 
 let g:airline#extensions#fnamemod=':t'
 set hidden
 nmap <C-k> :bnext<cr>				"nexe buffer
@@ -166,7 +168,8 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " Theme Setting
 " hybrid 不会修改背景,也就是说可以使背景透明
 " lucius 会修改背景色,终端无法设置透明
-colorscheme lucius "hybrid
+"colorscheme lucius  "linux
+colorscheme murphy "koehler   " win-linux  powershell
 
 set scrolloff=5
 set guioptions-=T
@@ -344,7 +347,7 @@ if use_neocomplete==2	"youcompleteme needs clang #yum install clang
 	"nnoremap <leader>lo :lopen<CR>	'open locationlist
 	"nnoremap <leader>lc :lclose<CR>	'close locationlist
 	inoremap <leader><leader> <C-x><C-o>
-	"在注释输入中也能补全
+	"在注释输入中
 	let g:ycm_complete_in_comments = 1
 	"在字符串输入中也能补全
 	let g:ycm_complete_in_strings = 1
