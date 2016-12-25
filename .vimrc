@@ -1,10 +1,9 @@
 
-
 " option
 let use_golang=1
 let use_neocomplete=2	" 1 use neocomplete, 2 use youcompleteme
-
-
+let for_fedora=0
+let enable_ruby=0
 
 set langmenu=none 		"force to use the English manus
 "set nocompatible		"be iMproved
@@ -52,8 +51,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'rtyler/ctags'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'beaugunderson/vim-scss-instead'
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "garbas/vim-snipmate"
@@ -64,6 +61,14 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 't9md/vim-choosewin'
 if use_golang==1
 	NeoBundle 'fatih/vim-go'
+endif
+
+if (enable_ruby)
+NeoBundle 'tpope/vim-rails'
+
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'beaugunderson/vim-scss-instead'
 endif
 
 " NerdTree
@@ -84,7 +89,13 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='behelit'"'base16' 
+
+if (for_fedora==1)
+	let g:airline_theme='behelit'"'base16' 
+else
+	let g:airline_theme='distinguished'
+endif
+
 let g:airline#extensions#fnamemod=':t'
 set hidden
 nmap <C-k> :bnext<cr>				"nexe buffer
@@ -103,8 +114,6 @@ let g:tagbar_width=25
 
 " languages
 NeoBundle 'Mizuchi/STL-Syntax'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'cakebaker/scss-syntax.vim'
 
 
 " colorscheme
@@ -146,7 +155,6 @@ let mapleader = ","		" The Leader char is ','
 set fileencodings=ucs-bom,utf-8,cp936,utf-16
 set encoding=utf-8		" Set default encoding to UTF-8
 set pastetoggle=<F9>	"切换past模式
-"set mouse=a				" 设置鼠标可用:
 set noshowmode 			"otherwise messages shown at the bottom line
 set autoread			"当文件在外部被修改时,自动加载
 set lazyredraw			"don't redraw while executing macros
@@ -156,7 +164,7 @@ set noswapfile
 set cursorline
 
 if has('mouse')
-	set mouse=a
+	set mouse=i
 endif			
 
 set foldenable
@@ -170,6 +178,12 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " lucius 会修改背景色,终端无法设置透明
 "colorscheme lucius  "linux
 colorscheme murphy "koehler   " win-linux  powershell
+
+if (for_fedora==1)
+	colorscheme murphy
+else
+	colorscheme lucius
+endif
 
 set scrolloff=5
 set guioptions-=T
