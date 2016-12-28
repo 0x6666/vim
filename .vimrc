@@ -1,9 +1,14 @@
 
 " option
 let use_golang=1
-let use_neocomplete=2	" 1 use neocomplete, 2 use youcompleteme
-let for_fedora=0
+let use_neocomplete=1	" 1 use neocomplete, 2 use youcompleteme
+let for_fedora=1
 let enable_ruby=0
+
+if has('mouse')
+	set mouse=a
+endif			
+
 
 set langmenu=none 		"force to use the English manus
 "set nocompatible		"be iMproved
@@ -90,7 +95,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-if (for_fedora==1)
+if (for_fedora!=1)
 	let g:airline_theme='behelit'"'base16' 
 else
 	let g:airline_theme='distinguished'
@@ -163,9 +168,6 @@ set nowb
 set noswapfile 
 set cursorline
 
-if has('mouse')
-	set mouse=i
-endif			
 
 set foldenable
 set foldmethod=syntax
@@ -179,7 +181,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 "colorscheme lucius  "linux
 colorscheme murphy "koehler   " win-linux  powershell
 
-if (for_fedora==1)
+if (for_fedora!=1)
 	colorscheme murphy
 else
 	colorscheme lucius
