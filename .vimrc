@@ -64,6 +64,7 @@ NeoBundle "othree/xml.vim"
 NeoBundle "vim-airline/vim-airline-themes"
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 't9md/vim-choosewin'
+NeoBundle 'chr4/nginx.vim'
 if use_golang==1
 	NeoBundle 'fatih/vim-go'
 endif
